@@ -18,12 +18,12 @@ class String
         return SCORE_NO_MATCH if abbreviation.length > string.length
         return SCORE_MATCH    if abbreviation == string
 
-        scores = build_score_array(string, abbreviation);
+        scores = score_array(string, abbreviation);
         scores.inject(0) {|v,m| v + m} / scores.size
       end
 
-      def build_score_array(string, abbreviation)
-            
+      def score_array(string, abbreviation)
+
       end
 
       def new_word?(string, index)
