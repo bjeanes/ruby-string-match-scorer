@@ -4,5 +4,5 @@ require 'scorer'
 require 'string_ext'
 
 
-puts "hello world".score("abc", :quicksilver)
-puts "hello world".score("hel", :quicksilver)
+puts "hello world".score("abc")
+puts "hello world".score("hel")
