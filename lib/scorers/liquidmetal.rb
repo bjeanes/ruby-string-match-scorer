@@ -1,5 +1,7 @@
 class String
   protected
+
+  # Algorithm from http://github.com/rmm5t/liquidmetal/blob/master/liquidmetal.js
   module LiquidMetal
     StringScorer.register(:liquid_metal, self)
 

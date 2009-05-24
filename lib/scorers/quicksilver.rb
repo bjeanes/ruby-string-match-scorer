@@ -1,5 +1,7 @@
 class String
   protected
+
+  # Algorithm from http://is.gd/CUqC 
   module Quicksilver
     StringScorer.register(:quicksilver, self)
 
