@@ -23,7 +23,34 @@ class String
       end
 
       def score_array(string, abbreviation)
+        scores = Array.new(string.length)
+        lower  = string.downcase
+        chars  = abbreviation.downcase.split("")
 
+        last_index = -1
+        started    = false
+        chars.each do |c|
+          index = lower.index(c, last_index + 1)
+
+          return fill_array(scores, SCORE_NO_MATCH) if index.nil?
+          started = true if index == 0
+
+          if new_word?(string, index)
+            scores[index-1] = 1;
+            fill_array(scores, SCORE_BUFFER, last_index + 1, index - 1)
+          elsif uppercase?(string, index)
+            fill_array(scores, SCORE_BUFFER, last_index + 1, index)
+          else
+            fill_array(scores, SCORE_NO_MATCH, last_index + 1, index)
+          end
+
+          scores[index] = SCORE_MATCH
+          last_index = index
+        end
+
+        trailing_score = (started ? SCORE_TRAILING_BUT_STARTED : SCORE_TRAILING)
+        fill_array(scores, trailing_score, last_index + 1)
+        scores
       end
 
       def new_word?(string, index)
