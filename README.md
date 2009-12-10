@@ -30,7 +30,7 @@ LiquidMetal scorer is faster with longer strings and also handles case
 differences better.
 
 It's easy to create other scoring algorithms, just look at any of the files
-in `lib/scorers` directory
+in `lib/string_scorer/scorers` directory
 
 # License
 
